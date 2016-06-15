@@ -14,8 +14,8 @@ namespace Mosaicus.Models
         {
             string picFile = "pics.txt";
             string result = "";
-
-            Bitmap bmp = new Bitmap(picPath + "/" + picture);
+            
+            Bitmap bmp = new Bitmap(picPath + "/UsersPhoto/" + picture);
 
             for (int i = 0; i < bmp.Height - picSize; i += picSize)
             {
@@ -64,9 +64,7 @@ namespace Mosaicus.Models
                             winner = item.Key;
                     }
 
-
                     result += String.Format("<img src='/Home/Data/{0}' />", winner);
-
                 }
 
                 result += "<br>";
@@ -75,9 +73,7 @@ namespace Mosaicus.Models
             bmp.Dispose();
 
             return result;
-
         }
-
 
     }
 }

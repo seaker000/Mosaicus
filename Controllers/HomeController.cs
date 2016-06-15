@@ -22,10 +22,24 @@ namespace Mosaicus.Controllers
         }
 
         // GET: Home
+        [HttpPost]
         public string Processing()
         {
-            string result;
-            result = Models.Mosaic.processing(Server.MapPath("Data"), "main5.jpg", PicSize);
+            string result = "Error!";
+
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("Data/UsersPhoto/"), fileName);
+                    file.SaveAs(path);
+
+                    result = Models.Mosaic.processing(Server.MapPath("Data"), fileName, PicSize);
+                }
+            }
 
             return result;
         }
