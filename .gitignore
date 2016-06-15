@@ -22,7 +22,7 @@ bld/
 [Oo]bj/
 App_Start
 App_Data/
-Home/
+Data/
 
 # Visual Studio 2015 cache/options directory
 .vs/
