@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mosaicus - Create your own mosaic!</h2>
+<br>
+<div>
+    
+    @using (Html.BeginForm("Processing", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <table>
+        <tr>
+            <td>
+                <div class="input-group" style="width: 400px;">
+                    <label class="input-group-btn">
+                        <span class="btn btn-primary">
+                            Choose picture&hellip; <input type="file" name="file" style="display: none;" multiple>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" readonly>
+                </div>
+            </td>
+            <td>
+                &nbsp;&nbsp;<input type="submit" class="btn btn-lg btn-success" value="Сreate a mosaic">
+            </td>
+        </tr>
+        </table>
+    }
+
+    <br>
+    <br>
+    @Html.ActionLink("Photo update", "UpdateImages", null, new { @class = "btn btn-lg btn-info" })
+</div>
+
